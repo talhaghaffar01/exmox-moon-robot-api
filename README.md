@@ -176,4 +176,4 @@ moon-robot-api/
 
 ---
 
-**Built for lunar exploration** 🌙🤖
+**By: Muhammad Talha Ghaffar for Exmox (m.talhaghaffar07@gmail.com) 🌙🤖
