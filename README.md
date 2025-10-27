@@ -173,6 +173,7 @@ moon-robot-api/
 ✅ Environment configuration  
 ✅ Auto-migrations  
 ✅ Comprehensive tests  
+✅ Liniting, formatting and sorting of imports (using black, ruff, mypy and Isort)
 
 ---
 
