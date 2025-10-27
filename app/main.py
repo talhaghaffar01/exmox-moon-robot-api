@@ -36,7 +36,7 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 # create app
 app = FastAPI(
     title="Moon Robot Control API",
-    description="A FastAPI service for remotely controlling lunar exploration robots",
+    description="fastapi project for moon-robot-api",
     version="0.1.0",
     docs_url="/docs",
     redoc_url="/redoc",
