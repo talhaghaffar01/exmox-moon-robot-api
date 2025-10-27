@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: moon-robot-postgres
+    environment:
+      POSTGRES_USER: robot
+      POSTGRES_PASSWORD: robot_password
+      POSTGRES_DB: moon_robot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U robot"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moon-robot-api
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://robot:robot_password@postgres:5432/moon_robot
+      - START_POSITION_X=4
+      - START_POSITION_Y=2
+      - START_DIRECTION=WEST
+      - OBSTACLES=1,4;3,5;7,4
+      - ENVIRONMENT=development
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

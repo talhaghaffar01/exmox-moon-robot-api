@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "moon-robot-api"
+version = "0.1.0"
+description = "Moon Robot API"
+authors = ["talhaghaffar01 <talhaghaffar01@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.120.0"
+uvicorn = {extras = ["standard"], version = "^0.38.0"}
+sqlalchemy = "^2.0.44"
+asyncpg = "^0.30.0"
+alembic = "^1.17.0"
+pydantic = "^2.12.3"
+pydantic-settings = "^2.11.0"
+python-dotenv = "^1.2.1"
+greenlet = "^3.2.4"
+isort = "^7.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+pytest-asyncio = "^1.2.0"
+pytest-cov = "^7.0.0"
+httpx = "^0.28.1"
+black = "^25.9.0"
+ruff = "^0.14.2"
+mypy = "^1.18.2"
+aiosqlite = "^0.21.0"
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
